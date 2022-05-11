@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSnippylyClient } from '../../context/SnippylyContext';
+import Menus from '../Menus/Menus';
 import { Users } from '../../users';
 
-function Toolbar() {
+function Toolbar({ onMenuSelect }) {
     const [selectedUser, setSelectedUser] = useState(null);
     const users = Users;
 
@@ -46,6 +47,7 @@ function Toolbar() {
     return (
         <div className='header'>
             <snippyly-presence></snippyly-presence>
+            <Menus onMenuSelect={onMenuSelect} />
             <div>
                 {
                     selectedUser ?

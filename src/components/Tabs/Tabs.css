@@ -1,0 +1,62 @@
+.tabs-container {
+    display: flex;
+    padding: 24px;
+}
+
+.tabs-block {
+    margin-right: 64px;
+}
+
+.tab {
+    padding: 1rem;
+    margin: 1rem;
+    background: #f7f7f7;
+    min-width: 12rem;
+    text-align: center;
+    cursor: pointer;
+    min-height: 6rem;
+    position: relative;
+}
+
+.tab.selected {
+    background: #0084ff;
+    color: white;
+    font-weight: bold;
+}
+
+.tabs-content {
+    flex: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+.clear-btn {
+    cursor: pointer;
+    color: #0084ff;
+    text-decoration: underline;
+}
+
+.notes-container {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.notes-block {
+    margin: 24px;
+    padding: 8px 24px;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.presence-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.presence-container .s-presence-avatar {
+    width: 1rem !important;
+    height: 1rem !important;
+    font-size: 0.7rem;
+}
