@@ -7,6 +7,11 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import StreamView from './components/StreamView/StreamView';
 
+/**
+ * @type {import("@snippyly/types").Snippyly}
+ */
+var Snippyly;
+
 function App() {
 
   const [client, setClient] = useState(null);
@@ -18,7 +23,8 @@ function App() {
 
   const init = async () => {
     if (window.Snippyly) {
-      const client = await window.Snippyly.init('TA66fUfxZVtGBqGxSTCz', {
+      Snippyly = window.Snippyly;
+      const client = await Snippyly.init('TA66fUfxZVtGBqGxSTCz', {
         featureAllowList: [], // To allow specific features only
         // userIdAllowList: ['abcd'], // To allow specific users only
         urlAllowList: [], // To allow snippyly in specific screens only
