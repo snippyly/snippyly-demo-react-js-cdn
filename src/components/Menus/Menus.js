@@ -13,12 +13,18 @@ function Menus({ onMenuSelect }) {
     const [menus, setMenus] = useState(menuArray);
     const [selectedMenu, setSelectedMenu] = useState(0);
 
+    const { client } = useSnippylyClient();
+
+    useEffect(() => {
+        if (client) {
+            setDocumentId(0, `${window.location.href}${menuArray[0].link}`);
+        }
+    }, [client])
+
     useEffect(() => {
         const menu = menus[selectedMenu];
         onMenuSelect(menu);
     }, [selectedMenu])
-
-    const { client } = useSnippylyClient();
 
     const setDocumentId = (index, documentId) => {
         if (client) {
