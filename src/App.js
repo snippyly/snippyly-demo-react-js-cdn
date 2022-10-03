@@ -35,6 +35,7 @@ function App() {
       // Enable attachment feature
       const commentElement = client.getCommentElement();
       commentElement.enableAttachment(true);
+      commentElement.showScreenSizeInfo(true);
     }
   }
 
