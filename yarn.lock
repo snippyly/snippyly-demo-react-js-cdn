@@ -1773,10 +1773,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snippyly/types@^1.0.54":
-  version "1.0.54"
-  resolved "https://registry.yarnpkg.com/@snippyly/types/-/types-1.0.54.tgz#f1a9cd1e99003ff42fa171b2da6cf93bc8b681ea"
-  integrity sha512-IFGwNlsMEELX8eyX4JtZdUulBpVbD7Tjjvy6pz9prwayEJx5wePF1AyXR4B6q0osbQYqTXXGJ14Bn7BvSuNthA==
+"@snippyly/react@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@snippyly/react/-/react-1.0.2.tgz#591a48daa4a9f489e5394e3dd9febb0ca50c07b1"
+  integrity sha512-0QbkPyZoMYQiJfBc8m1PlXm9awNda6ZvWyMb5Diwc7xvfBo+5a3n+uxPWJYOkt5pDdNbzRbsOSn+Qv5QU+36MQ==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
