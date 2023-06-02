@@ -1,4 +1,4 @@
-import { useSnippylyClient } from '@snippyly/react';
+import { useSnippylyClient } from '@veltdev/react';
 import React, { useEffect, useState } from 'react';
 import './Cursor.css';
 

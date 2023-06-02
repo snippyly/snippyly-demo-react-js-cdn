@@ -3,7 +3,7 @@ import Toolbar from './components/Toolbar/Toolber';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import StreamView from './components/StreamView/StreamView';
-import { SnippylyCommentsSidebar, SnippylyCommentTool, SnippylyCursor, SnippylyHuddle, SnippylyProvider, SnippylyRecorderControlPanel, SnippylyRecorderNotes } from '@snippyly/react';
+import { VeltCommentsSidebar, VeltCommentTool, VeltCursor, VeltHuddle, VeltProvider, VeltRecorderControlPanel, VeltRecorderNotes } from '@veltdev/react';
 
 function App() {
 
@@ -20,14 +20,14 @@ function App() {
       const selectionElement = client.getSelectionElement();
       selectionElement.enableLiveSelection(true);
       // Set document id
-      client.setDocumentId(excludeSnippylyParamsFromUrl(window.location.href));
+      client.setDocumentId(excludeVeltParamsFromUrl(window.location.href));
     }
   }
 
-  const excludeSnippylyParamsFromUrl = (url) => {
+  const excludeVeltParamsFromUrl = (url) => {
     try {
       const tempUrl = new URL(url);
-      ['review', 'sreviewId', 'snippyly-user', 'scommentId', 'stagId'].forEach((param) => {
+      ['review', 'sreviewId', 'velt-user', 'scommentId', 'stagId'].forEach((param) => {
         tempUrl.searchParams.delete(param);
       });
       return tempUrl.href;
@@ -38,26 +38,26 @@ function App() {
 
   return (
     <>
-      <SnippylyProvider apiKey='TA66fUfxZVtGBqGxSTCz'
+      <VeltProvider apiKey='TA66fUfxZVtGBqGxSTCz'
         config={{
           featureAllowList: [], // To allow specific features only
           // userIdAllowList: ['abcd'], // To allow specific users only
-          urlAllowList: [], // To allow snippyly in specific screens only
+          urlAllowList: [], // To allow velt in specific screens only
         }} onClientLoad={(client) => init(client)}>
         <div>
-          <SnippylyCursor />
-          <SnippylyCommentsSidebar />
-          <SnippylyCommentTool />
-          <SnippylyRecorderControlPanel />
-          <SnippylyRecorderNotes />
-          <SnippylyHuddle />
+          <VeltCursor />
+          <VeltCommentsSidebar />
+          <VeltCommentTool />
+          <VeltRecorderControlPanel />
+          <VeltRecorderNotes />
+          <VeltHuddle />
           <Toolbar />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/stream-view" element={<StreamView />} />
           </Routes>
         </div>
-      </SnippylyProvider>
+      </VeltProvider>
     </>
   );
 }
