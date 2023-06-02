@@ -1,4 +1,4 @@
-import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
+import { VeltPresence, useVeltClient } from '@veltdev/react';
 import React, { useEffect, useState } from 'react';
 import { Users } from '../../users';
 import Menus from '../Menus/Menus';
@@ -7,7 +7,7 @@ function Toolbar({ onMenuSelect }) {
     const [selectedUser, setSelectedUser] = useState(null);
     const users = Users;
 
-    const { client } = useSnippylyClient();
+    const { client } = useVeltClient();
 
     useEffect(() => {
         // If user is logged in then set it to selected user state
@@ -18,11 +18,11 @@ function Toolbar({ onMenuSelect }) {
 
     useEffect(() => {
         if (selectedUser && client) {
-            identifySnippyly();
+            identifyVelt();
         }
     }, [selectedUser, client])
 
-    const identifySnippyly = async () => {
+    const identifyVelt = async () => {
         if (client) {
             client.identify(selectedUser).then((res) => {
                 // User login successful
@@ -42,14 +42,14 @@ function Toolbar({ onMenuSelect }) {
 
     const signIn = (user) => {
         // Add custom logic here to login user
-        // Once user is available call identifySnippyly
+        // Once user is available call identifyVelt
         localStorage.setItem('user', JSON.stringify(user));
         setSelectedUser(user);
     }
 
     return (
         <div className='header'>
-            <SnippylyPresence />
+            <VeltPresence />
             <Menus onMenuSelect={onMenuSelect} />
             <div>
                 {

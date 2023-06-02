@@ -1,4 +1,4 @@
-import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
+import { VeltPresence, useVeltClient } from '@veltdev/react';
 import React, { useEffect, useState } from 'react'
 import './Tabs.css';
 
@@ -7,7 +7,7 @@ function Tabs({ selectedMenu }) {
     const [tabDocumentParams, setTabDocumentParams] = useState([]);
     const [selectedTab, setSelectedTab] = useState();
 
-    const { client } = useSnippylyClient();
+    const { client } = useVeltClient();
 
     useEffect(() => {
         setTabDocumentParams(tabs.map((tab, index) => {
@@ -51,7 +51,7 @@ function Tabs({ selectedMenu }) {
                                     <div key={index} className={`tab ${(selectedTab === index + 1) ? 'selected' : ''}`} onClick={() => setSelectedTab(index + 1)}>
                                         {tab}
                                         <div className='presence-container'>
-                                            <SnippylyPresence id={`tab${index}`} maxUsers="1" location={JSON.stringify(tabDocumentParams[index])} />
+                                            <VeltPresence id={`tab${index}`} maxUsers="1" location={JSON.stringify(tabDocumentParams[index])} />
                                         </div>
                                     </div>
                                 </>
